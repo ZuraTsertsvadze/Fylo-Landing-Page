@@ -1,34 +1,91 @@
 "use strict"
 
-const headerInput=document.querySelector(".header-input");
-const  lowInput=document.querySelector(".low-imput");
-const  loginError=document.querySelector(".login-error");
-const headerButton=document.querySelector(".header-but");
+const headerInput = document.querySelector(".header-input");
 
-const pattern= /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const lowInput = document.querySelector(".low-input");
 
 
 
-const compareFunc=()=>{
+const loginError = document.querySelector(".login-error");
+
+const loginErrorLow = document.querySelector(".login-error-low");
+
+const lowButton = document.querySelector(".low-but");
+
+const headerButton = document.querySelector(".header-but");
+
+const pattern = /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 
-if(!pattern.test(headerInput.value)){
 
-    
+const compareFunc = () => {
 
-    loginError.style.display="block";
 
-    console.log("broken")
+    if (!pattern.test(headerInput.value)) {
+
+
+
+        loginError.style.display = "block";
+
+        headerInput.style.borderColor = "red";
+
+        console.log("broken")
+
+
+    }
+
+
+    if (pattern.test(headerInput.value)) {
+
+
+
+        loginError.style.display = "none";
+
+        headerInput.style.borderColor = "#07043B";
+
+
+
+    }
+
+
 
 
 }
 
 
-if(pattern.test(headerInput.value)){
 
-    
+const compareFuncLow = () => {
 
-    loginError.style.display="none";
+
+    if (!pattern.test(lowInput.value)) {
+
+
+
+        loginErrorLow.style.display = "block";
+
+        lowInput.style.border = "1px solid red";
+
+        console.log("broken")
+
+
+    }
+
+
+    if (pattern.test(lowInput.value)) {
+
+
+
+        loginErrorLow.style.display = "none";
+
+        lowInput.style.borderColor = "#07043B";
+
+
+
+    }
+
+
+
+
 
 
 
@@ -40,14 +97,35 @@ if(pattern.test(headerInput.value)){
 
 
 
-}
+lowButton.addEventListener("click", () => {
+    compareFuncLow()
+})
 
 
 
 
 
-   
-headerButton.addEventListener("click",()=>{
+lowInput.addEventListener("keypress", (e) => {
+    console.log(e)
+
+    if (e.key === "Enter") {
+
+        compareFuncLow()
+
+    }
+
+
+})
+
+
+
+
+
+
+
+
+
+headerButton.addEventListener("click", () => {
     compareFunc()
 
 })
@@ -56,10 +134,10 @@ headerButton.addEventListener("click",()=>{
 
 
 
-headerInput.addEventListener("keypress",(e)=>{
+headerInput.addEventListener("keypress", (e) => {
     console.log(e)
 
-    if(e.key==="Enter"){
+    if (e.key === "Enter") {
 
         compareFunc()
 

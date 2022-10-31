@@ -98,6 +98,7 @@
 }
 
 .header-input {
+  outline: none;
 
   border: 0.0391rem solid #07043b;
   box-shadow: 0.125rem 0.1875rem 0.375rem rgba(0, 0, 0, 0.15925);
@@ -386,6 +387,7 @@
 
 
 .low-input {
+  outline: none;
   background: #FFFFFF;
   box-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(7, 4, 59, 0.157043);
   border-radius: 0.0919rem;
@@ -539,6 +541,7 @@
 
 .header-layout {
   align-self: center;
+  align-items: baseline;
 }
 
 .low-main-but-cont {
@@ -1147,21 +1150,21 @@
 
 
 
-.bot-header,
-nav,
-.main-main-cont,
-.curve-desk,
-.low-main,
-.footer {
-  width: 100%;
-  max-width: 125rem;
-}
+  .bot-header,
+  nav,
+  .main-main-cont,
+  .curve-desk,
+  .low-main,
+  .footer {
+    width: 100%;
+    max-width: 125rem;
+  }
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
 }
 
@@ -1197,10 +1200,14 @@ body {
 
 
 
-.header-input {
+.header-input,
+.low-input {
   color: black;
 
 }
+
+
+
 
 
 .login-error-low {
